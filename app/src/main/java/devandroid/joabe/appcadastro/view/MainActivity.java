@@ -2,7 +2,6 @@ package devandroid.joabe.appcadastro.view;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -21,45 +20,35 @@ public class MainActivity extends AppCompatActivity {
     CustomerController customerController;
     List<String> CoursesNames;
     Customer customer;
-    EditText editFirstName;
-    EditText editSecondName;
-    EditText editCourse;
-    EditText editContact;
+    EditText editName;
+    EditText editNameCompany;
+    EditText editGender;
     Button buttonClean;
     Button buttonSave;
     Button buttonFinish;
     Spinner spinnerGender;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-       // setContentView(R.layout.activity_main_spinner);
 
         customerController = new CustomerController(MainActivity.this);
 
-        editFirstName = findViewById(R.id.editName);
-
-
-
+        editName = findViewById(R.id.editName);
+        editNameCompany = findViewById(R.id.editNameCompany);
+        editGender = findViewById(R.id.editGender);
 
         buttonClean = findViewById(R.id.buttonClean);
         buttonSave = findViewById(R.id.buttonSave);
         buttonFinish = findViewById(R.id.buttonFinish);
 
 
-        editSecondName.setText(customer.getNameCompany());
-
-
-
-
         buttonClean.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                editFirstName.setText("");
-                editSecondName.setText("");
-                editCourse.setText("");
-                editContact.setText("");
+                editName.setText("");
+                editNameCompany.setText("");
+                editGender.setText("");
             }
         });
 
@@ -67,9 +56,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                customer.setName(editFirstName.getText().toString());
-                customer.setNumberContact(editContact.getText().toString());
-
+                customer.setName(editName.getText().toString());
+                customer.setNameCompany(editNameCompany.getText().toString());
+                customer.setGender(editGender.getText().toString());
 
                 customerController.Save(customer);
             }

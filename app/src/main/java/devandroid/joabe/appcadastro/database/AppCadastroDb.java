@@ -60,13 +60,6 @@ public class AppCadastroDb extends SQLiteOpenHelper {
                 reg.setName(cursor.getString(0));
                 reg.setNameCompany(cursor.getString(1));
                 reg.setGender(cursor.getString(2));
-                reg.setBirthday(cursor.getString(3));
-                reg.setCountry(cursor.getString(4));
-                reg.setState(cursor.getString(5));
-                reg.setCity(cursor.getString(6));
-                reg.setBudget(cursor.getDouble(7));
-                reg.setNumberContact(cursor.getString(8));
-
                 listCustomer.add(reg);
             }
             while (cursor.moveToNext());

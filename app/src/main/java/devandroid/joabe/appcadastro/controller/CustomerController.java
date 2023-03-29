@@ -32,14 +32,6 @@ public class CustomerController extends AppCadastroDb {
         data.put("name", customer.getName());
         data.put("nameCompany", customer.getNameCompany());
         data.put("gender", customer.getGender());
-        data.put("name", customer.getBirthday());
-        data.put("name", customer.getCountry());
-        data.put("name", customer.getState());
-        data.put("name", customer.getCity());
-        data.put("name", customer.getBudget());
-        data.put("name", customer.getNumberContact());
-
-
         saveObject("CUSTOMER", data);
     }
 
@@ -50,12 +42,6 @@ public class CustomerController extends AppCadastroDb {
         data.put("name", customer.getName());
         data.put("nameCompany", customer.getNameCompany());
         data.put("gender", customer.getGender());
-        data.put("name", customer.getBirthday());
-        data.put("name", customer.getCountry());
-        data.put("name", customer.getState());
-        data.put("name", customer.getCity());
-        data.put("name", customer.getBudget());
-        data.put("name", customer.getNumberContact());
         AlterData("CUSTOMER", data);
     }
 

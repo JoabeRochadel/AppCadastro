@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AppGasEta</string>
+    <string name="app_name">AppCadastro</string>
     <string name="txt_title">Cadastro de Cliente</string>
     <string name="txt_hint_name">Digite o nome</string>
     <string name="txt_hint_name_company">Digite o nome da empresa</string>
