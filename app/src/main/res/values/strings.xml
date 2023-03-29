@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">AppGasEta</string>
+    <string name="txt_title">Cadastro de Cliente</string>
+    <string name="txt_hint_name">Digite o nome</string>
+    <string name="txt_hint_name_company">Digite o nome da empresa</string>
+    <string name="txt_hint_gender">Sexo:</string>
+    <string name="txt_hint_birthday">Nascimento (dd/MM/AAAA) </string>
+    <string name="txt_hint_country">País:</string>
+    <string name="txt_hint_state">Estado</string>
+    <string name="txt_hint_city">Cidade</string>
+    <string name="txt_hint_budget">Orçamento</string>
+    <string name="txt_hint_number_contact">Número de contato</string>
+    <string name="button_clean">LIMPAR</string>
+    <string name="button_save">SALVAR</string>
+    <string name="button_finish">FINALIZAR</string>
+</resources>
