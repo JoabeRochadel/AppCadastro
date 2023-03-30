@@ -12,16 +12,13 @@
         android:theme="@style/Theme.AppCadastro"
         tools:targetApi="31">
         <activity
-            android:name=".view.cadastrar_cliente"
+            android:name=".view.CadastrarClienteActivity"
             android:exported="false" />
         <activity
             android:name=".view.cadastrar_colaborador"
             android:exported="false" />
         <activity
             android:name=".view.cadastrar_fornecedor"
-            android:exported="false" />
-        <activity
-            android:name=".view.MainActivity"
             android:exported="false" />
         <activity
             android:name=".view.RedirectActivity"

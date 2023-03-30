@@ -29,7 +29,7 @@ public class RedirectActivity extends AppCompatActivity {
     }
 
     private void abrirCadastroCliente(){
-        Intent intent = new Intent(this, cadastrar_cliente.class);
+        Intent intent = new Intent(this, CadastrarClienteActivity.class);
         startActivity(intent);
     }
     private void abrirCadastroFornecedor(){

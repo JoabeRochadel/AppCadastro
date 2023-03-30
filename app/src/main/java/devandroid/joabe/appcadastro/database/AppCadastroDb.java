@@ -9,11 +9,11 @@ import android.database.sqlite.SQLiteOpenHelper;
 import java.util.ArrayList;
 import java.util.List;
 
-import devandroid.joabe.appcadastro.model.Customer;
+import devandroid.joabe.appcadastro.model.Cadastro;
 
 public class AppCadastroDb extends SQLiteOpenHelper {
 
-    private static final String DB_NAME = "listavip.db";
+    private static final String DB_NAME = "cadastro.db";
     private static final int DB_VERSION = 1;
     Cursor cursor;
     SQLiteDatabase db;
@@ -27,11 +27,14 @@ public class AppCadastroDb extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        String SqlTableCadastro = "CREATE TABLE CUSTOMER " +
+        String SqlTableCadastro = "CREATE TABLE CADASTRO " +
                 "(id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                "                           NAME TEXT, " +
-                "                           NAME_COMPANY TEXT, " +
-                "                           GENDER TEXT)";
+                "                           NOME TEXT, " +
+                "                           ENDERECO TEXT, " +
+                "                           SEXO TEXT, " +
+                "                           EMAIL TEXT, " +
+                "                           TELEFONE TEXT, " +
+                "                           CATEGORIA TEXT)";
 
         db.execSQL(SqlTableCadastro);
     }
@@ -45,28 +48,31 @@ public class AppCadastroDb extends SQLiteOpenHelper {
         db.insert(table, null, data);
     }
 
-    public List<Customer> ListData() {
-        List<Customer> listCustomer = new ArrayList<Customer>();
-        Customer reg;
+    public List<Cadastro> ListData() {
+        List<Cadastro> listCadastro = new ArrayList<Cadastro>();
+        Cadastro reg;
 
-        String sSql = "SELECT * FROM LISTAVIP";
+        String sSql = "SELECT * FROM CADASTRO";
 
         cursor = db.rawQuery(sSql, null);
 
         if (cursor.moveToFirst()) {
 
             do {
-                reg = new Customer();
-                reg.setName(cursor.getString(0));
-                reg.setNameCompany(cursor.getString(1));
-                reg.setGender(cursor.getString(2));
-                listCustomer.add(reg);
+                reg = new Cadastro();
+                reg.setNome(cursor.getString(0));
+                reg.setEndereco(cursor.getString(1));
+                reg.setSexo(cursor.getString(2));
+                reg.setEmail(cursor.getString(3));
+                reg.setTelefone(cursor.getString(4));
+                reg.setCategoria(cursor.getString(5));
+                listCadastro.add(reg);
             }
             while (cursor.moveToNext());
         } else {
-            throw new RuntimeException("Ocorreu um erro -> Não há registros na tabela Customer");
+            throw new RuntimeException("Ocorreu um erro -> Não há registros na tabela CADASTRO");
         }
-        return listCustomer;
+        return listCadastro;
     }
 
     public void AlterData(String table, ContentValues data) {
