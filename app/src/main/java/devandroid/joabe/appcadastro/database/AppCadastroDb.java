@@ -84,4 +84,23 @@ public class AppCadastroDb extends SQLiteOpenHelper {
     public void DeleteData(String table, int id) {
         db.delete(table, "id=?", new String[]{Integer.toString(id)});
     }
+
+    public boolean ExisteEmail(String email) {
+
+        String consulta = "SELECT COUNT(*) FROM CADASTRO WHERE EMAIL = ?";
+        String[] argumentos = {email};
+        Cursor cursor = db.rawQuery(consulta, argumentos);
+
+        if (cursor.moveToFirst()) {
+            int count = cursor.getInt(0);
+            if (count > 0) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }
 }
+

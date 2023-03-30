@@ -53,7 +53,6 @@ public class CadastrarClienteActivity extends AppCompatActivity {
         btn_salvar = findViewById(R.id.btn_salvar);
         btn_finalizar = findViewById(R.id.btn_finalizar);
         btn_voltar = findViewById(R.id.btn_voltar);
-
         edit_nome.setText(cadastro.getNome());
         edit_endereco.setText(cadastro.getEndereco());
         edit_email.setText(cadastro.getEmail());
@@ -78,8 +77,18 @@ public class CadastrarClienteActivity extends AppCompatActivity {
                 cadastro.setTelefone(edit_telefone.getText().toString());
                 cadastro.setSexo(edit_sexo.getText().toString());
 
-                cadastroController.Save(cadastro);
-                cadastroController.limparDados(edit_nome, edit_endereco, edit_email, edit_telefone, edit_sexo);
+                if (cadastro.getNome() == null | cadastro.getEmail() == null | cadastro.getEndereco() == null | cadastro.getSexo() == null |
+                cadastro.getTelefone() == null ) {
+                    Toast.makeText(CadastrarClienteActivity.this, "Precisa preencher todos os campos!", Toast.LENGTH_LONG).show();
+                }
+                else if (cadastroController.ExisteEmail(edit_email.getText().toString())){
+                    Toast.makeText(CadastrarClienteActivity.this, "Email já salvo no banco de dados, tente outro email!", Toast.LENGTH_LONG).show();
+                    edit_email.setText("");
+                }
+                else {
+                    cadastroController.Save(cadastro);
+                    cadastroController.limparDados(edit_nome, edit_endereco, edit_email, edit_telefone, edit_sexo);
+                }
             }
         });
 
